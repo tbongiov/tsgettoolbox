@@ -1160,7 +1160,7 @@ def base_ldas(
             project = "GLDAS2_v2_0" if "_2_0_" in words[-1] else "GLDAS2_v2_1"
         nvariables.append(words[-1])
 
-    if lat < _project_lat_ranges[project][0] or lat > _project_lat_ranges[project][1]:
+    if float(lat) < _project_lat_ranges[project][0] or float(lat) > _project_lat_ranges[project][1]:
         raise ValueError(
             tsutils.error_wrapper(
                 f"Latitude {lat} is out of range for {project} data. "
@@ -1168,7 +1168,7 @@ def base_ldas(
                 f"{_project_lat_ranges[project][1]}."
             )
         )
-    if lon < _project_lon_ranges[project][0] or lon > _project_lon_ranges[project][1]:
+    if float(lon) < _project_lon_ranges[project][0] or float(lon) > _project_lon_ranges[project][1]:
         raise ValueError(
             tsutils.error_wrapper(
                 f"Longitude {lon} is out of range for {project} data. "
